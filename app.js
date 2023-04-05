@@ -3,12 +3,13 @@ require("dotenv").config()
 const express = require("express")
 const blogsSchema = require("./src/model/blogschema")
 const app = express()
+const cors = require('cors')
 const connecDB = require("./src/db/connect")
 
 const routes = require('./src/routes/index')
 
 const PORT = process.env.PORT || 5000
-
+app.use(cors());
 
 app.get("/", async (req, res) => {
     res.send("I'm live")
